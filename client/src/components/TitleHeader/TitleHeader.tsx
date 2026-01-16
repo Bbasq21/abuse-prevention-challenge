@@ -1,7 +1,7 @@
 import { useTranslations } from '../../i18n/translations';
-import './Header.css';
+import './TitleHeader.css';
 
-export const Header = () => {
+export const TitleHeader = () => {
   const t = useTranslations();
 
   return (

@@ -1,6 +1,6 @@
 import { useInitialData } from "./hooks/useInitialData";
 import { FormSkeleton } from "./components/FormSkeleton/FormSkeleton";
-import { Header } from "./components/Header/Header";
+import { TitleHeader } from "./components/TitleHeader/TitleHeader";
 import { UserForm } from "./components/UserForm/UserForm";
 import type { UserFormData } from "./components/UserForm/UserForm";
 import "./App.css";
@@ -39,7 +39,7 @@ function App() {
 
   return (
     <div className="container">
-      <Header />
+      <TitleHeader />
 
       <main className="card">
         {isLoading ? (

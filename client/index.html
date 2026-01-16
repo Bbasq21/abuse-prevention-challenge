@@ -5,7 +5,7 @@
 	<meta charset="UTF-8" />
 	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>client</title>
+	<title>Mercado Libre</title>
 </head>
 
 <body>
@@ -13,14 +13,13 @@
 
 	<noscript>
 		<style>
-			/* Estilos básicos para que no se vea roto sin JS */
 			.noscript-container {
 				font-family: sans-serif;
 				padding: 20px;
 				max-width: 480px;
 				margin: 0 auto;
 			}
-
+	
 			.noscript-warning {
 				background: #fff3cd;
 				color: #856404;
@@ -28,14 +27,14 @@
 				border-radius: 4px;
 				margin-bottom: 20px;
 			}
-
+	
 			.ns-input {
 				width: 100%;
 				padding: 10px;
 				margin-bottom: 10px;
 				display: block;
 			}
-
+	
 			.ns-btn {
 				background: #00a650;
 				color: white;
@@ -44,32 +43,27 @@
 				cursor: pointer;
 			}
 		</style>
-
+	
 		<div class="noscript-container">
-			<div class="noscript-warning">
-				⚠ JavaScript está desactivado. Estás usando la versión básica del sitio.
-			</div>
-
-			<h1>Finalizar Compra</h1>
-
-			<form action="http://localhost:3001/api/native-submit" method="POST">
-
-				<label>Nombre Completo</label>
-				<input type="text" name="fullname" class="ns-input" required placeholder="Juan Perez">
-
-				<label>País (Código)</label>
+			<div class="noscript-warning">__NS_WARNING__ </div>
+	
+			<h1>__NS_TITLE__</h1>
+	
+			<form action="/api/native-submit" method="POST">
+				<label>__NS_LBL_NAME__</label>
+				<input type="text" name="fullname" class="ns-input" required>
+	
+				<label>__NS_LBL_COUNTRY__</label>
 				<select name="countryId" class="ns-input">
 					<option value="AR">Argentina</option>
 					<option value="BR">Brasil</option>
 					<option value="CO">Colombia</option>
 				</select>
-
-				<label>Dirección</label>
-				<input type="text" name="address" class="ns-input" required placeholder="Calle 123">
-
-				<input type="hidden" name="referrer" value="/checkout">
-
-				<button type="submit" class="ns-btn">Continuar</button>
+	
+				<label>__NS_LBL_ADDRESS__</label>
+				<input type="text" name="address" class="ns-input" required>
+	
+				<button type="submit" class="ns-btn">__NS_BTN__</button>
 			</form>
 		</div>
 	</noscript>
