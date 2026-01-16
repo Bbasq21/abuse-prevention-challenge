@@ -44,7 +44,6 @@ export const Captcha = ({ onVerify }: CaptchaProps) => {
 
       <div className="captcha-logo">
         <small>reCAPTCHA</small>
-        <br />
         <small>Privacy - Terms</small>
       </div>
     </div>

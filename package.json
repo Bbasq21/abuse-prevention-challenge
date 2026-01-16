@@ -4,9 +4,12 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"server": "cd server && npx nodemon --exec tsx src/index.ts",
+		"server": "cd server && npx nodemon src/index.ts",
 		"client": "cd client && npm run dev",
-		"dev": "concurrently \"npm run server\" \"npm run client\""
+		"dev": "concurrently \"npm run server\" \"npm run client\"",
+		"test:client": "cd client && npm run test",
+		"test:server": "cd server && npm run test",
+		"test": "concurrently \"npm run test:client\" \"npm run test:server\""
 	},
 	"keywords": [],
 	"author": "",

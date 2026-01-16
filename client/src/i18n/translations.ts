@@ -56,10 +56,10 @@ const resources: Record<Language, TranslationKeys> = {
 
 // Función helper para detectar idioma según dominio
 export const getLanguageFromDomain = (): Language => {
-	const hostname = window.location.hostname;
+	const hostname = window.location?.hostname || "";
 	// Simulamos detección: si termina en .br es portugués, sino español
 	// En local podemos probar con ?lang=pt
-	const params = new URLSearchParams(window.location.search);
+	const params = new URLSearchParams(window.location?.search || "");
 	if (params.get("lang") === "pt") return "pt";
 
 	if (hostname.endsWith(".br")) return "pt";

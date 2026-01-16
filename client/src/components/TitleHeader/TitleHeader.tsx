@@ -1,13 +1,13 @@
-import { useTranslations } from '../../i18n/translations';
-import './TitleHeader.css';
+import { useTranslations } from "../../i18n/translations";
+import "./TitleHeader.css";
 
 export const TitleHeader = () => {
-  const t = useTranslations();
+	const t = useTranslations();
 
-  return (
-    <header className="app-header">
-      <h1>{t.headerTitle}</h1>
-      <p>{t.headerSubtitle}</p>
-    </header>
-  );
+	return (
+		<section className="app-header">
+			<h2>{t.headerTitle}</h2>
+			<p>{t.headerSubtitle}</p>
+		</section>
+	);
 };

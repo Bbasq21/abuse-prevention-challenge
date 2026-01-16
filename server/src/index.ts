@@ -10,7 +10,7 @@ import { dirname } from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const app = express();
+export const app = express();
 const PORT = process.env.PORT || 3001;
 
 app.use(cors());
@@ -96,6 +96,8 @@ app.get('/checkout', (req: Request, res: Response) => {
 
 // TO DO: Aquí serviremos los estáticos de React más adelante
 // app.use(express.static(path.join(__dirname, '../../client/dist')));
-app.listen(PORT, () => {
-	console.log(`Server running on http://localhost:${PORT}`);
-});
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`Server running on http://localhost:${PORT}`);
+    });
+}
