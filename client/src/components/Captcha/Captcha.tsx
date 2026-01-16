@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslations } from '../../i18n/translations';
 import "./Captcha.css";
 
 interface CaptchaProps {
@@ -6,6 +7,7 @@ interface CaptchaProps {
 }
 
 export const Captcha = ({ onVerify }: CaptchaProps) => {
+  const t = useTranslations();
   const [isVerified, setIsVerified] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -35,7 +37,7 @@ export const Captcha = ({ onVerify }: CaptchaProps) => {
       >
         {isVerified && <span className="checkmark">✔</span>}
       </div>
-      <span className="captcha-label">I'm not a robot</span>
+      <span className="captcha-label">{t.captchaLabel}</span>
 
       {/* Icono de recarga simulado si está cargando */}
       {isLoading && <div className="spinner-ring"></div>}

@@ -1,3 +1,4 @@
+import { useTranslations } from '../../i18n/translations';
 import "./FooterActions.css";
 
 interface FooterActionsProps {
@@ -11,17 +12,18 @@ export const FooterActions = ({
   isSubmitting = false,
   disableSubmit = false,
 }: FooterActionsProps) => {
+  const t = useTranslations();
   return (
     <div className="footer-actions">
       <button type="button" onClick={onBack} className="btn-secondary">
-        Go back
+        {t.btnBack}
       </button>
       <button
         type="submit"
         className="btn-primary"
         disabled={disableSubmit || isSubmitting}
       >
-        {isSubmitting ? "Loading..." : "Next"}
+        {isSubmitting ? t.btnLoading : t.btnNext}
       </button>
     </div>
   );

@@ -1,15 +1,13 @@
+import { useTranslations } from '../../i18n/translations';
 import './Header.css';
 
-interface HeaderProps {
-  title: string;
-  subtitle: string;
-}
+export const Header = () => {
+  const t = useTranslations();
 
-export const Header = ({ title, subtitle }: HeaderProps) => {
   return (
     <header className="app-header">
-      <h1>{title}</h1>
-      <p>{subtitle}</p>
+      <h1>{t.headerTitle}</h1>
+      <p>{t.headerSubtitle}</p>
     </header>
   );
 };

@@ -39,10 +39,7 @@ function App() {
 
   return (
     <div className="container">
-      <Header
-        title="We're almost there..."
-        subtitle="Update your contact data"
-      />
+      <Header />
 
       <main className="card">
         {isLoading ? (

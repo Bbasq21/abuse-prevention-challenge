@@ -43,4 +43,21 @@ router.get('/user', async (req: Request, res: Response<ApiResponse<UserProfile |
     }
 });
 
+// Endpoint para cuando NO hay Javascript (HTML Form Submit)
+router.post('/native-submit', (req: Request, res: Response) => {
+    // Recibimos los datos del body (form data)
+    const { fullname, countryId, address, referrer } = req.body;
+    
+    console.log('Recibido vía No-Script:', req.body);
+    
+    // Aquí haríamos la lógica de guardado...
+    
+    // Redirección final (Server Side Redirect)
+    // Como no hay JS, no podemos enviar token de captcha validado frontend.
+    // En un caso real, validaríamos captcha server-side o pediríamos un paso extra.
+    const redirectUrl = `${referrer || '/home'}?status=success_noscript`;
+    
+    res.redirect(redirectUrl);
+});
+
 export default router;

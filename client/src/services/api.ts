@@ -25,7 +25,7 @@ async function request<T>(url: string, options?: RequestInit): Promise<T> {
 }
 
 export const getCountries = () => {
-  return request<Country[]>('/countries');
+  return request<Country[]>("/countries");
 };
 
 export const getUserData = (token: string) => {
