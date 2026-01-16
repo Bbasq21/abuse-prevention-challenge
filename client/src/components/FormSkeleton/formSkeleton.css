@@ -1,0 +1,35 @@
+.skeleton-wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	padding: 1rem 0;
+}
+
+.skeleton-field {
+	height: 14px;
+	background-color: #e0e0e0;
+	border-radius: 4px;
+	margin-bottom: 8px;
+}
+
+.skeleton-input {
+	height: 40px;
+	background-color: #f0f0f0;
+	border-radius: 6px;
+	/* Animación de pulso para indicar carga */
+	animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+	0% {
+		opacity: 0.6;
+	}
+
+	50% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0.6;
+	}
+}
