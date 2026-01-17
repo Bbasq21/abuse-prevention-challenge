@@ -1,6 +1,6 @@
-# 🛡️ Desafío de Prevención de Abuso y Validación de Datos
+# 🛡️ Challenge Abuse Prevention y Validación de Datos
 
-Este repositorio contiene la solución para el desafío técnico de "Prevención de Abuso". Implementa un paso intermedio de verificación en el checkout, enfocándose en **Alto Rendimiento**, **Experiencia de Usuario (UX)** y **Soporte No-Script**.
+Este repositorio contiene la solución para el desafío técnico "Abuse Prevention". Implementa un paso intermedio de verificación en el checkout, enfocándose en **Alto Rendimiento**, **Experiencia de Usuario (UX)** y **Soporte No-Script**.
 
 ---
 
