@@ -96,8 +96,11 @@ app.get('/checkout', (req: Request, res: Response) => {
 
 // TO DO: Aquí serviremos los estáticos de React más adelante
 // app.use(express.static(path.join(__dirname, '../../client/dist')));
-if (require.main === module) {
-    app.listen(PORT, () => {
-        console.log(`Server running on http://localhost:${PORT}`);
-    });
-}
+// if (require.main === module) {
+//     app.listen(PORT, () => {
+//         console.log(`Server running on http://localhost:${PORT}`);
+//     });
+// }
+app.listen(PORT, () => {
+	console.log(`Server running on http://localhost:${PORT}`);
+});
