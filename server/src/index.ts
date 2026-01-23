@@ -58,7 +58,7 @@ app.get("/", (req: Request, res: Response) => {
   };
   const t = SERVER_TRANSLATIONS[lang];
 
-  const indexPath = path.join(clientDistPath, "index.html");
+  const indexPath = path.join(clientDistPath, "app.html");
 
   if (fs.existsSync(indexPath)) {
     let html = fs.readFileSync(indexPath, "utf-8");
@@ -79,7 +79,7 @@ app.get("/", (req: Request, res: Response) => {
 // 5. Catch-all: Cualquier otra ruta devuelve el index.html (para React Router si lo usaras)
 // Express 5 requiere un patrón específico en lugar de '*'
 app.get(/.*/, (req: Request, res: Response) => {
-  res.sendFile(path.join(clientDistPath, "index.html"));
+  res.sendFile(path.join(clientDistPath, "app.html"));
 });
 
 // 6. IMPORTANTE PARA VERCEL: Exportar la app

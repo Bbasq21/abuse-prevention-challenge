@@ -6,7 +6,7 @@
     "client": "cd client && npm run dev",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "test": "concurrently \"npm run test:client\" \"npm run test:server\"",
-    "vercel-build": "cd client && npm install --include=dev && npm run build && cd ../server && npm install --include=dev && npm run build",
+    "vercel-build": "cd client && npm install --include=dev && npm run build && mv dist/index.html dist/app.html && cd ../server && npm install --include=dev && npm run build",
     "build": "npm run vercel-build"
   },
   "dependencies": {
