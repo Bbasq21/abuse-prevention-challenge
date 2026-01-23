@@ -1,9 +1,18 @@
 {
   "version": 2,
+  "functions": {
+    "api/index.mjs": {
+      "includeFiles": "client/dist/**"
+    }
+  },
   "rewrites": [
     {
+      "source": "/api/(.*)",
+      "destination": "/api/index.mjs"
+    },
+    {
       "source": "/(.*)",
-      "destination": "/server/dist/index.js"
+      "destination": "/api/index.mjs"
     }
   ]
 }

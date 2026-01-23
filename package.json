@@ -2,14 +2,17 @@
   "name": "abuse-prevention-challenge",
   "version": "1.0.0",
   "scripts": {
-  	"server": "cd server && npx nodemon src/index.ts",
-  	"client": "cd client && npm run dev",
-  	"dev": "concurrently \"npm run server\" \"npm run client\"",
-  	"test": "concurrently \"npm run test:client\" \"npm run test:server\"",
-
-	"vercel-build": "cd client && npm install --include=dev && npm run build && cd ../server && npm install --include=dev && npm run build"
-},
+    "server": "cd server && npx nodemon src/index.ts",
+    "client": "cd client && npm run dev",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "test": "concurrently \"npm run test:client\" \"npm run test:server\"",
+    "vercel-build": "cd client && npm install --include=dev && npm run build && cd ../server && npm install --include=dev && npm run build",
+    "build": "npm run vercel-build"
+  },
   "dependencies": {
-    "concurrently": "^8.0.0" 
+    "concurrently": "^8.0.0",
+    "express": "^5.2.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5"
   }
 }
