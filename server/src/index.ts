@@ -35,25 +35,39 @@ app.use("/api", routes);
 const serveSSR = (req: Request, res: Response) => {
   const host = req.get("host") || "";
   const lang = host.includes(".br") || req.query.lang === "pt" ? "pt" : "es";
+  // let lang = "es";
+  // if (req.query.lang === "en" || host.includes(".com")) {
+  //   lang = "en";
+  // } else if (req.query.lang === "pt" || host.includes(".br")) {
+  //   lang = "pt";
+  // } else if (req.query.lang === "es") {
+  //   lang = "es";
+  // }
 
   // Diccionarios
   const SERVER_TRANSLATIONS: Record<string, any> = {
     es: {
       warning: "⚠ JavaScript desactivado. Cargando versión ligera...",
-      title: "Finalizar Compra",
+      title: "Ya casi estamos...",
+      subtitle: "Actualiza tus datos de contacto",
       labelName: "Nombre completo",
       labelCountry: "País",
-      labelAddress: "Dirección de envío",
-      btnSubmit: "Continuar compra",
+      labelAddress: "Dirección",
+      btnSubmit: "Continuar",
+      btnBack: "Volver",
+      captchaLabel: "No soy un robot",
       successMsg: "¡Datos enviados correctamente! (Modo No-Script)",
     },
     pt: {
       warning: "⚠ JavaScript desativado. Carregando versão leve...",
-      title: "Finalizar Compra",
+      title: "Quase lá...",
+      subtitle: "Atualize seus dados de contato",
       labelName: "Nome completo",
       labelCountry: "País",
-      labelAddress: "Endereço de envio",
-      btnSubmit: "Continuar compra",
+      labelAddress: "Endereço",
+      btnSubmit: "Continuar",
+      btnBack: "Voltar",
+      captchaLabel: "Não sou um robô",
       successMsg: "Dados enviados com sucesso! (Modo No-Script)",
     },
   };
@@ -68,10 +82,13 @@ const serveSSR = (req: Request, res: Response) => {
     html = html
       .replace("__NS_WARNING__", t.warning)
       .replace("__NS_TITLE__", t.title)
+      .replace("__NS_SUBTITLE__", t.subtitle)
       .replace("__NS_LBL_NAME__", t.labelName)
       .replace("__NS_LBL_COUNTRY__", t.labelCountry)
       .replace("__NS_LBL_ADDRESS__", t.labelAddress)
-      .replace("__NS_BTN__", t.btnSubmit);
+      .replace("__NS_BTN__", t.btnSubmit)
+      .replace("__NS_BTN_BACK__", t.btnBack)
+      .replace("__NS_CAPTCHA__", t.captchaLabel);
 
     // 2. Lógica para mostrar mensaje de éxito en No-Script
     if (req.query.status === "success_noscript") {

