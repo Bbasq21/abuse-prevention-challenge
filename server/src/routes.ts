@@ -56,7 +56,8 @@ router.post('/native-submit', (req: Request, res: Response) => {
     // Como no hay JS, no podemos enviar token de captcha validado frontend.
     // En un caso real, validaríamos captcha server-side o pediríamos un paso extra.
     const redirectUrl = `${referrer || '/home'}?status=success_noscript`;
-    
+    console.log('Redirigiendo a:', redirectUrl);
+    console.log(referrer);
     res.redirect(redirectUrl);
 });
 
