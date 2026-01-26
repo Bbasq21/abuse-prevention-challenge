@@ -57,7 +57,6 @@ router.post('/native-submit', (req: Request, res: Response) => {
     // En un caso real, validaríamos captcha server-side o pediríamos un paso extra.
     const redirectUrl = `${referrer || '/home'}?status=success_noscript`;
     console.log('Redirigiendo a:', redirectUrl);
-    console.log(referrer);
     res.redirect(redirectUrl);
 });
 

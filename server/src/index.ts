@@ -44,6 +44,8 @@ const serveSSR = (req: Request, res: Response) => {
   //   lang = "es";
   // }
 
+  const referrer = String(req.query.referrer || "/home");
+
   // Diccionarios
   const SERVER_TRANSLATIONS: Record<string, any> = {
     es: {
@@ -88,7 +90,8 @@ const serveSSR = (req: Request, res: Response) => {
       .replace("__NS_LBL_ADDRESS__", t.labelAddress)
       .replace("__NS_BTN__", t.btnSubmit)
       .replace("__NS_BTN_BACK__", t.btnBack)
-      .replace("__NS_CAPTCHA__", t.captchaLabel);
+      .replace("__NS_CAPTCHA__", t.captchaLabel)
+      .replace("__NS_REFERRER__", referrer);
 
     // 2. Lógica para mostrar mensaje de éxito en No-Script
     if (req.query.status === "success_noscript") {
